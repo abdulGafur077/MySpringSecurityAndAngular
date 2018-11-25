@@ -18,12 +18,21 @@ import java.util.UUID;
 @RestController
 public class UiApplication {
 
-  @RequestMapping("/api/resource")
+  @RequestMapping("api/resource")
   @CrossOrigin(origins = "/**")
   public Map<String,Object> home() {
     Map<String,Object> model = new HashMap<String,Object>();
     model.put("id", UUID.randomUUID().toString());
     model.put("content", "Hello World");
+    return model;
+  }
+
+  @RequestMapping("auth/resource")
+  @CrossOrigin(origins = "/**")
+  public Map<String,Object> auth() {
+    Map<String,Object> model = new HashMap<String,Object>();
+    model.put("id", UUID.randomUUID().toString());
+    model.put("content", "Hello Auth World");
     return model;
   }
 

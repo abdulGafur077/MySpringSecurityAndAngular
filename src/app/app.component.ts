@@ -7,10 +7,11 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  api = '/resource';
+  api = 'api/resource';
+  auth = 'auth/resource';
   title = 'Demo';
   greeting = {};
   constructor(private http: HttpClient) {
-    http.get('api/resource').subscribe(data => this.greeting = data);
+    http.get(this.auth).subscribe(data => this.greeting = data);
   }
 }
