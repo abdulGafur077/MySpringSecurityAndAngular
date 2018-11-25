@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'MySpringSecurityAndAngular';
+  api = '/resource';
+  title = 'Demo';
+  greeting = {};
+  constructor(private http: HttpClient) {
+    http.get('api/resource').subscribe(data => this.greeting = data);
+  }
 }
